@@ -1,0 +1,26 @@
+train: train/images
+val: val/images
+test: test/images
+
+nc: 11
+names:
+  [
+    "Aeromonas Septicemia",
+    "Columnaris Disease",
+    "Edwardsiella Ictaluri -Bacterial Red Disease-",
+    "Epizootic Ulcerative Syndrome -EUS-",
+    "Flavobacterium -Bacterial Gill Disease-",
+    "Fungal Disease -Saprolegniasis-",
+    "Healthy Fish",
+    "Ichthyophthirius -White Spots-",
+    "Parasitic Disease",
+    "Streptococcus",
+    "Tilapia Lake Virus -TiLV-",
+  ]
+
+roboflow:
+  workspace: fishlens
+  project: fishlens-modelv1
+  version: 2
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/fishlens/fishlens-modelv1/dataset/2

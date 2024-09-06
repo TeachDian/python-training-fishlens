@@ -1,0 +1,19 @@
+# custom_data.yaml
+train: split/train/images # Path to training images
+val: split/val/images # Path to validation images
+test: split/test/images # (Optional) Path to test images
+
+nc: 11 # Number of classes in your dataset (change this accordingly)
+names: [
+    "Aeromonas Septicemia",
+    "Columnaris Disease",
+    "Edwardsiella Ictaluri (Bacterial Red Disease)",
+    "Epizootic Ulcerative Syndrome (EUS)",
+    "Flavobacterium (Bacterial Gill Disease)",
+    "Fungal Disease (Saprolegniasis)",
+    "Healthy Fish",
+    "Ichthyophthirius (White Spots)",
+    "Parasitic Disease",
+    "Streptococcus",
+    "Tilapia Lake Virus (TiLV)",
+  ] # Replace these with your actual class names
