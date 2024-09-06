@@ -7,7 +7,7 @@ import seaborn as sns
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 
 # Load the trained YOLOv8 model
-model = YOLO('runs/detect/train8/weights/best.pt')
+model = YOLO('runs/detect/train/weights/best.pt')
 
 # Validate the model on the validation set and store metrics
 metrics = model.val(data='data.yaml')
