@@ -1,11 +1,20 @@
 import torch
 from ultralytics import YOLO
 
-# Load a pretrained YOLOv8 model (e.g., 'yolov8s.pt' for YOLOv8 small)
-model = YOLO('models/3epoch.pt')
+print(torch.cuda.is_available())  # Should return True
+print(torch.cuda.get_device_name(0))  # Should print NVIDIA RTX 4060 or similar
 
-# Train the model on your custom dataset
-results = model.train(data='data.yaml', epochs=3, imgsz=640, device='cuda' if torch.cuda.is_available() else 'cpu')
+if __name__ == "__main__":
+    # Check if GPU is available
+    device = 'cuda' if torch.cuda.is_available() else 'cpu'
+    print(f"Using device: {device}")
 
-# Print the results
-print(results)
+    # Load a pretrained YOLOv8 model
+    model_path = "models/50epoch.pt"
+    model = YOLO(model_path)
+
+    # Train the model on your custom dataset
+    results = model.train(data='data.yaml', epochs=50, imgsz=640, device=device)
+
+    # Print the results
+    print(results)

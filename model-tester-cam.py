@@ -2,7 +2,7 @@ import cv2
 from ultralytics import YOLO
 
 # Load the YOLOv8 model from .pt file
-model_path = "models/3epoch.pt"  # Replace with the path to your .pt model
+model_path = "models/50epoch.pt"  # Replace with the path to your .pt model
 model = YOLO(model_path)
 
 # Open the webcam
