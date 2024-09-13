@@ -10,11 +10,11 @@ if __name__ == "__main__":
     print(f"Using device: {device}")
 
     # Load a pretrained YOLOv8 model
-    model_path = "models/150epoch.pt"
+    model_path = "yolov8n.pt"
     model = YOLO(model_path)
 
     # Train the model on your custom dataset
-    results = model.train(data='data.yaml', epochs=200, imgsz=640, device=device)
+    results = model.train(data='data.yaml', epochs=250, imgsz=640, device=device)
 
     # Print the results
     print(results)
