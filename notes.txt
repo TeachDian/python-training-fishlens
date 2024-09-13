@@ -1,1 +1,4 @@
 tensorboard --logdir runs
+
+# Load the results.csv file
+results_df = pd.read_csv('runs/detect/train/results.csv')
