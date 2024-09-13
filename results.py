@@ -1,11 +1,27 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
 
 # Load the results.csv file
 results_df = pd.read_csv('runs/detect/train/results.csv')
 
 # Strip any leading/trailing spaces in the column names
 results_df.columns = results_df.columns.str.strip()
+
+# Convert 'train/box_loss' column to numeric, forcing errors to NaN
+results_df['train/box_loss'] = pd.to_numeric(results_df['train/box_loss'], errors='coerce')
+
+# Replace inf and NaN values with the median of the column
+median_value = results_df['train/box_loss'].median()
+results_df['train/box_loss'] = results_df['train/box_loss'].replace([np.inf, -np.inf], np.nan)
+results_df['train/box_loss'].fillna(median_value, inplace=True)
+
+# Check the max and min again to ensure that inf and invalid values are handled
+print("Max value in train/box_loss after cleaning:", results_df['train/box_loss'].max())
+print("Min value in train/box_loss after cleaning:", results_df['train/box_loss'].min())
+
+# Now, you can safely clip the values if needed
+results_df['train/box_loss'] = results_df['train/box_loss'].clip(upper=1.0)
 
 # Define a smoothing function using a rolling window
 def smooth(data, window_size=5):
