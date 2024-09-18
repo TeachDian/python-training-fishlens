@@ -61,7 +61,7 @@ for node in tqdm(onnx_model.graph.node, desc="Processing Nodes", total=total_nod
                 node.input[i] = input_name + "_cast"
 
     # Introduce a short delay to avoid overwhelming the system
-    time.sleep(0.0001)  # Slow down the loop slightly
+    time.sleep(0.001)  # Slow down the loop slightly
 
     # Check memory usage and trigger garbage collection if necessary
     check_memory_and_collect()
